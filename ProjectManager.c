@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "Tasks.h"
 
 // DEFINITIONS
 
@@ -15,24 +16,6 @@ void sendHelp() {
 	printf("-d\t--delete\tDelete a project or a child\n");
 	printf("-m\t--modify\tModify a project or a child\n");
 	printf("-N\t--erase\tErase actual projects and recreate database");
-}
-
-// TASKS 
-
-void all(int *mod, char *arg) {
-	printf("Showing all with modifiers: [%d, %d, %d] and argument: %s", mod[0], mod[1], mod[2], arg);
-}
-
-void new(int *mod, char *arg) {
-	printf("Creating new with modifiers: [%d, %d, %d] and argument: %s", mod[0], mod[1], mod[2], arg);
-}
-
-void delete(int *mod, char *arg) {
-	printf("Deleting with modifiers: [%d, %d, %d] and argument: %s", mod[0], mod[1], mod[2], arg);
-}
-
-void modify(int *mod, char *arg) {
-	printf("Modifiying with modifiers: [%d, %d, %d] and argument: %s", mod[0], mod[1], mod[2], arg);
 }
 
 // MAIN
