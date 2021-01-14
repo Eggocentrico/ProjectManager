@@ -1,22 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "HashTable.h"
 
 // DEFINITIONS
 
 typedef void (fn_tsk)(int *, char *);
-
-int taskTable[4];
-insertKey(taskTable, "a", 0);
-insertKey(taskTable, "n", 1);
-insertKey(taskTable, "d", 2);
-insertKey(taskTable, "m", 3);
-
-int modifierTable[3];
-insertKey(modifierTable, "N", 0);
-insertKey(modifierTable, "e", 1);
-insertKey(modifierTable, "e", 1);
 
 // FUNCTS
 
