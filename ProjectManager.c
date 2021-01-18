@@ -26,7 +26,7 @@ int main (int argc, char **argv) {
 	char *argument = "";
 	int modifiers[3] = { 0, 0, 0 }; 
 
-	for (int i = 0; i < argc; i++) {
+	for (int i = 1; i < argc; i++) {
 		if (argv[i][0] == '-' && argv[i][1] == '-') {
 			char *option = argv[i];
 			memmove(option, option+2, strlen(option) - 1);
@@ -40,6 +40,14 @@ int main (int argc, char **argv) {
 				task = 3;
 			else if (!strcmp(option, "erase"))
 				modifiers[0] = 1;
+			else if (!strncmp("total=", option, 6)) {
+				char *optInt = malloc(sizeof(char) * 3);
+				memmove(optInt, option+6, strlen(option) - 5);
+				modifiers[1] = atoi(optInt);
+			}
+			else if (!strcmp(option, "task"))
+				modifiers[2] = 1;
+
 		}
 		else if (argv[i][0] == '-' && argv[i][1] != '-') {
 			char *options = argv[i];
@@ -55,6 +63,14 @@ int main (int argc, char **argv) {
 					task = 3;
 				else if (options[i] == 'N')
 					modifiers[0] = 1;
+				else if (options[i] == 'v' && options[i+1] == '=') {
+					char *optInt = malloc(sizeof(char) * 3);
+					memmove(optInt, options+i+2, strlen(options) - i);
+					modifiers[1] = atoi(optInt);
+					break;
+				}
+				else if (options[i] == 't')
+					modifiers[2] = 1;
 			}
 		}
 		else if (i > 1) {
